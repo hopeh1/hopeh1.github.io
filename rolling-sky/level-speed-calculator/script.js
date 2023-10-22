@@ -981,29 +981,7 @@ async function onsetdif(e){
 }
 
 
-const img = document.getElementById("thumbnail");
 
-img.addEventListener("contextmenu", (event) => {
-  // Add the download option to the context menu.
-  event.preventDefault();
-  const menu = document.createContextMenu();
-  const downloadItem = document.createElement("menuitem");
-  downloadItem.textContent = "Tải xuống";
-  downloadItem.addEventListener("click", () => {
-    // Download the image.
-    const url = img.src;
-
-    fetch(url)
-      .then((response) => response.blob())
-      .then((blob) => {
-        // Save the image to a file.
-        const file = new File([blob], "thumbnail.jpg");
-        file.save();
-      });
-  });
-  menu.appendChild(downloadItem);
-  event.target.appendChild(menu);
-});
 
 
 
