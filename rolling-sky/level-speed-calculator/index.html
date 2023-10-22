@@ -1,0 +1,224 @@
+<html>
+<head>
+    <title>Thumnail Maker</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="icon.png">
+</head>
+<body onLoad="onOpen()"><center>
+    <font size="5">
+	<p>
+	<b>Thumnail Creator for Showcase Video</b>
+	</font><br>
+	
+	<font size="3" style="color:#bbb">
+	basically you can create thumnail easily 
+	</font>
+	</p><br>
+	
+	<table border="0" align="center"><tr><td>
+	
+	<div class="previewbg">
+		<input type="file" class="input_bg" accept="image/*" hidden>
+		    <button class="button_bg" data-tippy-content="Click to copy button 2">Choose Background</button>
+			<label id="lablebgex">
+			    <font size="3" style="color:#888">Use photo with ratio 1:1</font>
+			</label>
+			<br><br>
+			
+			    <img id="bgimg" src="img.jpg" width="400" height="400" alt="previewbg" >
+			<br><Br>
+	</div>
+	<div class="previewtn">
+		<input type="file" class="input_tn" accept="image/*" hidden>
+			<button class="button_tn">Choose Thumnail</button>
+			<label id="labletnex">
+			<font size="3" style="color:#888">Better crop worldshow from the game</font>
+			</label>
+			<br><br>
+			
+			    <font id="tnimgcode"><img  id="tnimg" src="img.jpg" width="400" height="400" alt="previewtn"></font>
+			<br>
+			
+	</div> <br>
+	<div class="entrelvlnameclass">
+	    <font id="entrelvlname">
+            <input type="text" onkeypress="onchange()" onchange="onTypeInfo()" class="textbox" id="lvlname" name="fname" placeholder="Level Name" style="color:#000000">
+		</font>
+		<label id="labletnex">
+			<font size="3" style="color:#888">Level Name</font>
+		</label><br><br>
+		<table border="0">
+		<tr><td>
+		<p id="lvlcolorR">
+		    <input type="range" min="0" max="360" value="0" class="sliderR" oninput="onInput()" id="colorR" style="background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%)">
+		</p>
+		<p id="lvlcolorG">
+			<input type="range" min="0" max="100" value="0" class="sliderG" oninput="onInput()" id="colorG" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%)">
+		</p>
+		<p id="lvlcolorB">
+			<input type="range" min="0" max="100" value="0" class="sliderB" oninput="onInput()" id="colorB" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%)">
+		</p>
+		</td><td>
+		<p>
+		<input type="number" min="0" max="360" class="H11" id="H11" onchange="ontype()" name="fname2" placeholder="H" value="0" style="color:#000000">
+		<font size="4" style="color:#888">H</font>
+		</p>
+		<p>
+		<input type="number" min="0" max="100" class="H12" id="H12" onchange="ontype()" name="fname2" placeholder="S" value="0" style="color:#000000">
+		<font size="4" style="color:#888">S</font>
+		</p>
+		<p>
+		<input type="number" min="0" max="100" class="H13" id="H13" onchange="ontype()" name="fname2" placeholder="B" value="0" style="color:#000000">
+		<font size="4" style="color:#888">B</font>
+		</p>
+		</td></tr></table><br><br>
+	
+	<font class="checkbox-wrapper-46">
+        <input class="inp-cbx" id="cbx-46" type="checkbox">
+            <label class="cbx" for="cbx-46">
+				<span>
+                    <svg width="20px" height="20px" viewbox="0 0 12 10">
+                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                    </svg>
+				</span>
+            </label>
+		</input>
+    </font>
+	
+	<span class="enablecrown">Enable Crown</span><br><br>
+	
+	<div class="selectcrown" id="selectcrown">
+	    
+	    <button class="crown1"><img id="crownicon1" src="CrownUn.png" width="50"></button>
+		<button class="crown2"><img src="CrownUn.png" width="50"></button>
+		<button class="crown3"><img src="CrownUn.png" width="50"></button>
+		
+	    <label id="lablecrownex">
+			<font size="3" style="color:#888">Crown Number</font>
+		</label>
+	</div> <br><br>
+		
+		
+		
+		<table border="0" style="padding: 0 0 15 0;">
+		<tr><td style="padding: 0px;">
+		<font id="perno" size="6" style="padding: 0px;">
+            <input type="number" min="0" max="100" onchange="onTypeInfo()" class="textbox5" id="perno" placeholder="100" style="color:#000000">
+		</font>
+		</td><td style="padding: 0px;">
+		<font size="6" style="padding: 0px;">%</font>
+		</td><td style="padding: 0 0 0 10;">
+		<label id="labletnex2">
+			<font size="3" style="color:#888">Percentage</font>
+		</label>
+		</td></tr>
+		</table> 
+	    
+		<table border="0">
+		<tr><td>
+		<p id="lvlcolorR3">
+		    <input type="range" min="0" max="360" value="0" class="sliderR3" oninput="onInput3()" id="colorR3" style="background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%)">
+		</p>
+		<p id="lvlcolorG3">
+			<input type="range" min="0" max="100" value="0" class="sliderG3" oninput="onInput3()" id="colorG3" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%)">
+		</p>
+		<p id="lvlcolorB3">
+			<input type="range" min="0" max="100" value="0" class="sliderB3" oninput="onInput3()" id="colorB3" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%)">
+		</p>
+		</td><td>
+		<p>
+		<input type="number" min="0" max="360" class="H31" id="H31" onchange="ontype3()" name="fname2" placeholder="H" value="0" style="color:#000000">
+		<font size="4" style="color:#888">H</font>
+		</p>
+		<p>
+		<input type="number" min="0" max="100" class="H32" id="H32" onchange="ontype3()" name="fname2" placeholder="S" value="0" style="color:#000000">
+		<font size="4" style="color:#888">S</font>
+		</p>
+		<p>
+		<input type="number" min="0" max="100" class="H33" id="H33" onchange="ontype3()" name="fname2" placeholder="B" value="0" style="color:#000000">
+		<font size="4" style="color:#888">B</font>
+		</p>
+		</td></tr></table><br><br>
+		
+		<font id="diano" size="6">
+            <input type="number" min="0" max="99" onchange="onTypeInfo()" class="textbox2" id="diano1" name="fname2" placeholder="20" style="color:#000000">/<input type="number" min="0" max="99" onchange="onTypeInfo()" class="textbox3" id="diano2" name="fname2" placeholder="20" style="color:#000000">
+		</font>
+		<label id="labletnex2">
+			<font size="3" style="color:#888">Diamond Number</font>
+		</label><br><br>
+		<table border="0">
+		<tr><td>
+		<p id="lvlcolorR2">
+		    <input type="range" min="0" max="360" value="0" class="sliderR2" oninput="onInput2()" id="colorR2" style="background: linear-gradient(to right, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%)">
+		</p>
+		<p id="lvlcolorG2">
+			<input type="range" min="0" max="100" value="0" class="sliderG2" oninput="onInput2()" id="colorG2" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 100%)">
+		</p>
+		<p id="lvlcolorB2">
+			<input type="range" min="0" max="100" value="0" class="sliderB2" oninput="onInput2()" id="colorB2" style="background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%)">
+		</p>
+		</td><td>
+		<p>
+		<input type="number" min="0" max="360" class="H21" id="H21" onchange="ontype2()" name="fname2" placeholder="H" value="0" style="color:#000000">
+		<font size="4" style="color:#888">H</font>
+		</p>
+		<p>
+		<input type="number" min="0" max="100" class="H22" id="H22" onchange="ontype2()" name="fname2" placeholder="S" value="0" style="color:#000000">
+		<font size="4" style="color:#888">S</font>
+		</p>
+		<p>
+		<input type="number" min="0" max="100" class="H23" id="H23" onchange="ontype2()" name="fname2" placeholder="B" value="0" style="color:#000000">
+		<font size="4" style="color:#888">B</font>
+		</p>
+		</td></tr></table><br>
+		
+	</div>
+	
+
+	<div class="lvlno" id="lvlno"><font size="6">
+	    <input type="number" min="0" max="99" onchange="onTypeInfo()" class="textbox6" id="lvlno1" name="fname2" placeholder="10" style="color:#000000">/<input type="number" min="0" max="99" onchange="onTypeInfo()" class="textbox7" id="lvlno2" name="fname2" placeholder="10" style="color:#000000">
+	</font> <font size="3" style="color:#888">Levels Count</font> </div><br>
+	
+	<div class="difficulty" id="difficulty">
+	    
+	    <button class="star1" id="star1" onclick="onsetdif(1)" ><img src="star.png" width="40"></button>
+		<button class="star2" id="star2" onclick="onsetdif(2)" ><img src="star.png" width="40"></button>
+		<button class="star3" id="star3" onclick="onsetdif(3)" ><img src="star.png" width="40"></button>
+		<button class="star4" id="star4" onclick="onsetdif(4)" ><img src="star.png" width="40"></button>
+		<button class="star5" id="star5" onclick="onsetdif(5)" ><img src="star.png" width="40"></button>
+		<button class="star6" id="star6" onclick="onsetdif(6)" ><img src="star.png" width="40"></button>
+		
+	    <label id="lablecrownex">
+			<font size="3" style="color:#888">Difficulty</font>
+		</label>
+	</div> <br>
+	
+	<font class="checkbox-wrapper-64">
+        <label class="switch">
+            <input type="checkbox" id="UIchoosecheckbox">
+            <span class="slider"></span>
+        </label>
+    </font>
+	<label id="UIchoose">
+	    <span class="enablecrown">UI: Normal</span>
+	</label><br><br>
+	
+	</td></tr></table>
+	
+	<font size="7" style="color:#000; font-family: Sen-Bold;">Product</font><br>
+	<font class="showcase" id="showcase">
+		<canvas width="16" height="9" class="product "id="product">Canvas</canvas>
+	</font>
+	
+	<div class="debug">
+	Debug:
+	<input type="range" min="0" max="1000" value="0" class="xpos" oninput="onInput3()" id="xpos">
+	<input type="range" min="0" max="1000" value="0" class="ypos" oninput="onInput3()" id="ypos">
+	<button id="getpos" onclick="getpos()">GetPos</button>
+	</div>
+	
+	<script src="script.js"></script>
+	
+	</center>
+</body>
+</html>
