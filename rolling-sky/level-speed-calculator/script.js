@@ -734,7 +734,7 @@ var dy = debugypos.value/1000;
 		var productlvlname = inputtext.value;
 	
 	if (productlvlname == ""){
-	    productlvlname = 'Massif';
+	    productlvlname = 'Bingchilling';
 	}
 	
 	ctx.textAlign = 'center';
@@ -980,25 +980,31 @@ async function onsetdif(e){
 		onchange();
 }
 
-function generateThumbnail(title, description, tags) {
-  // Generate the thumbnail information.
-  // ...
+const img = document.getElementById("thumbnail");
 
-  // Save the thumbnail information to the database.
-  // ...
+img.addEventListener("contextmenu", (event) => {
+  // Add the download option to the context menu.
+  event.preventDefault();
+  const menu = document.createContextMenu();
+  const downloadItem = document.createElement("menuitem");
+  downloadItem.textContent = "Tải xuống";
+  downloadItem.addEventListener("click", () => {
+    // Download the image.
+    const url = img.src;
 
-  // Download the thumbnail image.
-  const url = generateThumbnail(title, description, tags);
+    fetch(url)
+      .then((response) => response.blob())
+      .then((blob) => {
+        // Save the image to a file.
+        const file = new File([blob], "thumbnail.jpg");
+        file.save();
+      });
+  });
+  menu.appendChild(downloadItem);
+  event.target.appendChild(menu);
+});
 
-  fetch(url)
-    .then((response) => response.blob())
-    .then((blob) => {
-      // Save the image to a file.
-      const file = new File([blob], "thumbnail.jpg");
-      file.save();
-    });
 
-  return url;
-}
+
 	
 
