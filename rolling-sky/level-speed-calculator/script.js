@@ -979,23 +979,26 @@ async function onsetdif(e){
 		starcount = e;
 		onchange();
 }
-// Generate the thumbnail information.
-const title = "My new YouTube video";
-const description = "This is a video about something.";
-const tags = ["tag1", "tag2", "tag3"];
 
-// Save the thumbnail information to the database.
-// ...
+function generateThumbnail(title, description, tags) {
+  // Generate the thumbnail information.
+  // ...
 
-// Download the thumbnail image.
-const url = generateThumbnail(title, description, tags);
+  // Save the thumbnail information to the database.
+  // ...
 
-fetch(url)
-  .then((response) => response.blob())
-  .then((blob) => {
-  // Save the image to a file.
-  const file = new File([blob], "thumbnail.jpg");
-  file.save();
-});
+  // Download the thumbnail image.
+  const url = generateThumbnail(title, description, tags);
 
+  fetch(url)
+    .then((response) => response.blob())
+    .then((blob) => {
+      // Save the image to a file.
+      const file = new File([blob], "thumbnail.jpg");
+      file.save();
+    });
+
+  return url;
+}
+	
 
