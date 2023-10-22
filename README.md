@@ -6,6 +6,8 @@
 
 The SpriteMaker will have new patterns added if Rolling Sky introduces any new patterns to their spritesheets. Fanmade levels do not count.
 
+ - [Thumbnail Maker]
+(https://hopeh1.github.io/rolling-sky/level-speed-calculator/)
  - [Tileset](https://hopeh1.github.io/rolling-sky/tileset/)
  - [Tile Display Embed](https://hopeh1.github.io/rolling-sky/tileset/display?tile=1)
  - [Tile Lookup](https://hopeh1.github.io/rolling-sky/tile-lookup/)
