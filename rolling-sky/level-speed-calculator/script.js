@@ -980,6 +980,7 @@ async function onsetdif(e){
 		onchange();
 }
 
+
 const img = document.getElementById("thumbnail");
 
 img.addEventListener("contextmenu", (event) => {
