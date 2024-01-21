@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<!-- CMR UTILITY -->
+<html>
+	<head>
+		<title>Rolling Sky CMR Utility</title>
+		
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-E48XX6KB6H"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-E48XX6KB6H');
+		</script>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="pagename" content="Rolling Sky CMR Utility"/>
+		<meta name="description" content="CMR Compiler and Decompiler"/>
+		<link rel="stylesheet" href="reset.css"></link>
+		<style>
+			html {
+				background: #202124;
+				color: white;
+				position: absolute;
+				width: 100%;
+				margin: 0;
+				font-family: sans-serif;
+				line-height: 1.25;
+			}
+			:root {
+				color-scheme: dark;
+				font-family: sans-serif;
+				line-height: 1.25;
+			}
+			#content {
+				margin: 15pt;
+				max-width: 720px;
+				width: 100%;
+				font-family: sans-serif;
+				line-height: 1.25;
+			}
+			.hide {
+				display: none;
+				opacity: 0;
+			}
+			.red-warn {
+				color: #ff4e4e;
+			}
+			.aqua-warn {
+				color: #00ffff;
+			}
+			.lime-warn {
+				color: #00ff45;
+			}
+			#overlay {
+				display: none;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100vw;
+				height: 100vh;
+				width: 100svw;
+				height: 100svh;
+				margin: 0;
+				backdrop-filter: blur(3px);
+				background: #00000052;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				align-content: center;
+				justify-content: center;
+				align-items: center;
+				line-height: 2;
+				font-size: 20px;
+			}
+			#overlay-text, #overlay-subtext {
+				text-align: center;
+				max-width: 75%;
+				font-size: 24px;
+			}
+			#overlay-subtext {
+				opacity: 0.5;
+				font-size: 18px;
+			}
+			#cmr-compile-canvas-preview, #cmr-decompile-canvas-preview {
+				display: block;
+				border-radius: 15px;
+				height: 300px;
+				pointer-events: none;
+				touch-action: none;
+			}
+			.margin-down {
+				margin-bottom: 10px;
+			}
+		
+			h1 {
+				display: block;
+				font-size: 2em;
+				margin-block-start: 0.67em;
+				margin-block-end: 0.67em;
+				margin-inline-start: 0px;
+				margin-inline-end: 0px;
+				font-weight: bold;
+			}
+			p {
+				display: block;
+				margin-block-start: 1em;
+				margin-block-end: 1em;
+				margin-inline-start: 0px;
+				margin-inline-end: 0px;
+			}
+			fieldset {
+				display: block;
+				margin-inline-start: 2px;
+				margin-inline-end: 2px;
+				padding-block-start: 0.35em;
+				padding-inline-start: 0.75em;
+				padding-inline-end: 0.75em;
+				padding-block-end: 0.625em;
+				min-inline-size: min-content;
+				border-width: 2px;
+				border-style: groove;
+				border-color: rgb(192, 192, 192);
+				border-image: initial;
+			}		
+			legend {
+				display: block;
+				padding-inline-start: 2px;
+				padding-inline-end: 2px;
+				border-width: initial;
+				border-style: none;
+				border-color: initial;
+				border-image: initial;
+			}
+			button {
+				color: #ffffff;
+				background-color: #6b6b6b;
+				border: none;
+				padding: 5px 12px;
+				border-radius: 10px;
+			}
+			select {
+				color: #ffffff;
+				background-color: #4a4a4a;
+				border: none;
+				padding: 5px 12px;
+				border-radius: 10px;
+			}
+			button:disabled {
+				opacity: 0.5;
+			}
+            b {
+                font-weight: bold;
+            }
+		</style>
+	</head>
+	<body>
+		<div id="content">
+			<h1>CMR Utility</h1>
+			<p>Hello everyone. To mark my semi-departure from Rolling Sky Community, I am providing an online JavaScript-run version of my popular private utility: cmr2png-GUI.exe, and the 2.0 version, cmr-editor-gui.exe.</p>
+			<p class="red-warn">Please do not steal this utility or claim it to be your own. This page will never be taken down. It is likely to recieve no updates after this initial release. Please only link back to this page. Do not decieve people to access this page.</p>
+			<p class="aqua-warn">This page has only been tested in Desktop Chrome [Version 120.0.6099.217 (Official Build) (64-bit)]. If it breaks on other browsers, please let me know.</p>
+			<p class="lime-warn"><b>[1/18/2023, 8:47pm]</b> Fixed bug Decompile CMR accidentally shifts the entire output down by 1 pixel. If you converted before this time, please re-convert.</p>
+			<fieldset>
+				<legend>Decompile CMR</legend>
+				<span class="lime-warn">DECOMPILE NOTE: Android WorldShow are in a 1:2 ratio by default, you need to stretch it yourself to 256x400px. For iOS, you need to stretch it to 512x800px.</span>
+				<br/><br/>
+				<span class="aqua-warn">Please use this tool ethically, some fanmades might not want you decompiling their CMRs. If they say to not decompile their CMRs, then don't.</span>
+				<div class="margin-down">
+					<br/>
+					<button onclick="this.nextElementSibling.click()">Select File (cmr)</button>
+					<input class="hide" id="cmr-decompile-file" type="file" accept=".cmr"/>
+					<!--<select id="cmr-decompile-args">
+						<option value="-1">AutoDetect</option>
+						<option value="0">Default Conversion</option>
+						<option value="1">Android WorldShow</option>
+						<option value="2">iOS WorldShow</option>
+						<option value="3">Ball</option>
+						<option value="4">HighRes WorldShow</option>
+					</select>-->
+					<button id="cmr-decompile-downloadFile" disabled="true">Download File (png)</button>
+				</div>
+				<!--<canvas class="hide" id="cmr-decompile-canvas" width="512" height="512"></canvas>-->
+				<image id="cmr-decompile-canvas-preview" src="placeholder.png"/>
+			</fieldset>
+			<p></p>
+			<!--<fieldset>
+				<legend>Compile CMR</legend>
+				<span class="red-warn">Sorry... i couldn't add this ToCMR feature because JavaScript can't encode the byte stream properly like Python and C# for some reason. It always forces itself into UTF8 and when the file is downloaded, all the bytes are kinda scrambled. From my knowledge and testing, there is no way to do this in js.<br/><br/>If you do know how to do this, then please contact me.<br/><br/>Dm me to convert to cmr, i will log into my account once in a while ig</span>
+			</fieldset>-->
+			<p></p>
+			<fieldset>
+				<legend>Compile CMR</legend>
+				<span class="lime-warn">CMR compilation is now preformed on the Backend, and the Backend is able to properly encode the files. Enjoy this feature!!!.</span>
+				<div class="margin-down">
+					<br/>
+					<button onclick="this.nextElementSibling.click()">Select File (png, jpg, jpeg)</button>
+					<input class="hide" id="cmr-compile-file" type="file" accept="image/png, image/jpeg"/>
+					<!--<select id="cmr-compile-args">
+						<option value="0">Default Conversion</option>
+						<option value="1">Android WorldShow</option>
+					</select>-->
+					<button id="cmr-compile-downloadFile" disabled="true">Download File (cmr)</button>
+				</div>
+				<!--<canvas class="hide" id="cmr-compile-canvas" width="512" height="512"></canvas>-->
+				<image id="cmr-compile-canvas-preview" src="placeholder.png"/>
+			</fieldset>
+		</div>
+		<div id="overlay">
+			<span id="overlay-text">Overlay Text</span>
+			<span id="overlay-subtext">(Click anywhere to dismiss)</span>
+		</div>
+        <script type="text/javascript" src="index.js"></script>
+	</body>
+</html>
