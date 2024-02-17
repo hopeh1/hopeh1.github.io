@@ -1,0 +1,30 @@
+* {
+	scroll-behavior: smooth;
+}
+
+@font-face {
+	font-family: 'regular';
+	src: url("rolling-sky/fonts/sen/regular.ttf");
+}
+
+@font-face {
+	font-family: 'bold';
+	src: url("rolling-sky/fonts/sen/bold.ttf");
+}
+
+.backbutton {
+    font-size: 14px;
+    padding: 10px;
+    width: 85pt;
+    transition: ease-in-out .25s;
+    border: solid;
+    border-radius: 10pt;
+    position: fixed;
+}
+
+backbutton:hover {
+    background-color: #333333;
+    animation-duration: 4s;
+    border-color: rgb(189, 255, 255);
+    transition: ease-in-out .25s;
+}

@@ -1,0 +1,116 @@
+* {
+	scroll-behavior: smooth;
+}
+
+@font-face {
+	font-family: 'regular';
+	src: url("rolling-sky/fonts/sen/regular.ttf");
+}
+
+@font-face {
+	font-family: 'bold';
+	src: url("rolling-sky/fonts/sen/bold.ttf");
+}
+
+.menuzhyv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4pt solid white;
+    border-radius: 5pt;
+    padding: 15pt;
+    z-index: 10000000;
+    background-color: #242424;
+    width: 500pt;
+    height: 250pt;
+    max-width: 500pt;
+    max-height: 250pt;
+    display: none;
+    flex-direction: column; /* Set flex direction to column */
+}
+
+.subscribemenu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4pt solid white;
+    border-radius: 5pt;
+    padding: 15pt;
+    z-index: 10000000;
+    background-color: #242424;
+    width: 500pt;
+    height: 250pt;
+    max-width: 500pt;
+    max-height: 250pt;
+    display: none;
+    flex-direction: column; /* Set flex direction to column */
+}
+
+.menuzhyv.active {
+    display: flex;
+}
+
+.zhyvhead {
+    font-size: 25pt;
+    font-weight: bold;
+    margin-bottom: 25pt; /* Add margin to separate head and body */
+}
+
+.zhyvbody {
+    font-size: 1.15rem; /* Adjust font size as needed */
+}
+
+.zhyvclose {
+    font-size: 1.25rem;
+    outline: 2px solid white;
+    width: 90pt;
+    position: fixed;
+    bottom: 10pt;
+    right: 10pt;
+}
+
+.otheroption {
+    font-size: 1.25rem;
+    outline: 2px solid white;
+    width: 90pt;
+    position: fixed;
+    bottom: 10pt;
+    right: 115pt;
+}
+
+.discord {
+    font-size: 1.25rem;
+    outline: 2px solid white;
+    width: 155pt;
+    position: fixed;
+    bottom: 10pt;
+    right: 115pt;
+}
+
+.zhyvgoodbye {
+    font-size: 1.25rem;
+    outline: 2px solid white;
+    width: 90pt;
+    position: fixed;
+    bottom: 10pt;
+    right: 110pt;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    background-color: #000000a0;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    width: 100%; /* Make sure the overlay covers the entire screen width */
+    height: 100%; /* Make sure the overlay covers the entire screen height */
+    pointer-events: none;
+}
+
+#overlay.active {
+    display: flex;
+    pointer-events: auto; /* Allow interaction when the overlay is active */
+}
